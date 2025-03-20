@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clonar o Repositorio') {
+            git branch: 'main', url: 'https://github.com/NateBLima/Teste-API-Ebac.git'
+        }
+    }
+    stages {
+        stage('Instalar Dependencias') {
+            bat 'npm install'
+        }
+    }
+    stages{
+        stage('Executar Testes') {
+            bat 'npx cypress run'
+        }
+    }
+}
