@@ -3,17 +3,19 @@ pipeline {
 
     stages {
         stage('Clonar o Repositorio') {
-            git branch: 'main', url: 'https://github.com/NateBLima/Teste-API-Ebac.git'
+            steps {
+                git branch: 'main', url: 'https://github.com/NateBLima/Teste-API-Ebac.git'
+            }
         }
-    }
-    stages {
         stage('Instalar Dependencias') {
-            bat 'npm install'
+            steps {
+                bat 'npm install'           
+            }
         }
-    }
-    stages{
         stage('Executar Testes') {
-            bat 'npx cypress run'
+            steps {
+                bat 'npx cypress run'
+            }
         }
     }
 }
