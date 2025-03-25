@@ -7,6 +7,11 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/NateBLima/Teste-API-Ebac.git'
             }
         }
+        stage('Executar o Serverest') {
+            steps {
+                bat 'start /b npm start'           
+            }
+        }
         stage('Instalar Dependencias') {
             steps {
                 bat 'npm install'           
